@@ -8,9 +8,15 @@ class TypeController {
     return res.json(type)
   }
 
-  async getAll(req, res) {}
+  async getAll(req, res) {
+    const types = await Type.findAll()
+    return res.json(types)
+  }
 
-  async delete(req, res) {}
+  async delete(req, res) {
+    const { id } = await Type.destroy()
+    return res.json(id)
+  }
 }
 
 module.exports = new TypeController()
